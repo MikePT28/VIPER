@@ -54,13 +54,9 @@ final class LoginView: BaseView {
         divider.backgroundColor = .vBlack
         divider.translatesAutoresizingMaskIntoConstraints = false
         
-        emailField = UITextField()
-        emailField.placeholder = "Email"
-        emailField.borderStyle = .roundedRect
+        emailField = .email
         
-        passwordField = UITextField()
-        passwordField.placeholder = "Password"
-        passwordField.borderStyle = .roundedRect
+        passwordField = .password
         
         loginButton = UIButton(type: .system)
         loginButton.setTitle("Log In", for: .normal)

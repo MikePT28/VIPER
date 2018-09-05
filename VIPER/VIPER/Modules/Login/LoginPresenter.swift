@@ -19,7 +19,28 @@ protocol LoginPresenterProtocol: BasePresenterProtocol {
     func doLogin(email: String?, password: String?)
 }
 
+protocol LoginPresenterCallbackProtocol: BasePresenterCallbackProtocol {
+    
+    func loginSuccess()
+    
+}
+
 final class LoginPresenter<T: LoginViewProtocol, U: LoginRouterProtocol>: BasePresenter<T, U> {
+    
+    fileprivate let loginInteractor: LoginInteractorProtocol
+    fileprivate let emailValidator: EmailValidatable
+    fileprivate let passwordValidator: PasswordValidatable
+    
+    init(view: T,
+         router: U,
+         loginInteractor: LoginInteractorProtocol,
+         emailValidator: EmailValidatable = EmailValidator(),
+         passwordValidator: PasswordValidatable = PasswordValidator()) {
+        self.emailValidator = emailValidator
+        self.passwordValidator = passwordValidator
+        self.loginInteractor = loginInteractor
+        super.init(view: view, router: router)
+    }
     
     
 }
@@ -32,11 +53,25 @@ extension LoginPresenter: LoginPresenterProtocol {
             view.showError(message: "Email and password are required!")
             return
         }
+        guard emailValidator.validate(email) else {
+            view.showError(message: "Please enter a valid 'email' address")
+            return
+        }
+        guard passwordValidator.validate(password) else {
+            view.showError(message: "Please enter a valid 'password'")
+            return
+        }
         
-        _ = email
-        _ = password
-        
+        loginInteractor.doLogin()
+    }
+    
+}
+
+extension LoginPresenter: LoginPresenterCallbackProtocol {
+    
+    func loginSuccess() {
         view.removeError()
     }
     
 }
+

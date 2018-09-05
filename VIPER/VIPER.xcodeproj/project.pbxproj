@@ -24,6 +24,10 @@
 		27B046F3214061ED003BF347 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B046F2214061ED003BF347 /* LoginRouter.swift */; };
 		27B046F521406325003BF347 /* LoginBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B046F421406325003BF347 /* LoginBuilder.swift */; };
 		27B046FA21406D3E003BF347 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B046F921406D3E003BF347 /* CardView.swift */; };
+		27B046FC21407AD7003BF347 /* UITextField+Molds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B046FB21407AD7003BF347 /* UITextField+Molds.swift */; };
+		27B046FF21407BAF003BF347 /* BaseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B046FE21407BAF003BF347 /* BaseValidator.swift */; };
+		27B0470121407C08003BF347 /* FormValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B0470021407C08003BF347 /* FormValidators.swift */; };
+		27B0470521408134003BF347 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B0470421408134003BF347 /* LoginInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,10 @@
 		27B046F2214061ED003BF347 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		27B046F421406325003BF347 /* LoginBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBuilder.swift; sourceTree = "<group>"; };
 		27B046F921406D3E003BF347 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		27B046FB21407AD7003BF347 /* UITextField+Molds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Molds.swift"; sourceTree = "<group>"; };
+		27B046FE21407BAF003BF347 /* BaseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseValidator.swift; sourceTree = "<group>"; };
+		27B0470021407C08003BF347 /* FormValidators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidators.swift; sourceTree = "<group>"; };
+		27B0470421408134003BF347 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,7 +183,8 @@
 				27B046D021405DCB003BF347 /* BaseComponents */,
 				27B046CE21405DC2003BF347 /* Extensions */,
 				27B046E421406081003BF347 /* Molds */,
-				27B046F821406D1F003BF347 /* StyleComponents */,
+				27B046F821406D1F003BF347 /* Views */,
+				27B046FD21407B8C003BF347 /* Validators */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -228,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				27B046E5214060A1003BF347 /* UILabel+Molds.swift */,
+				27B046FB21407AD7003BF347 /* UITextField+Molds.swift */,
 			);
 			path = Molds;
 			sourceTree = "<group>";
@@ -236,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				27B046F421406325003BF347 /* LoginBuilder.swift */,
+				27B0470421408134003BF347 /* LoginInteractor.swift */,
 				27B046F0214061E7003BF347 /* LoginPresenter.swift */,
 				27B046F2214061ED003BF347 /* LoginRouter.swift */,
 				27B046EE21406194003BF347 /* LoginView.swift */,
@@ -243,12 +254,21 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		27B046F821406D1F003BF347 /* StyleComponents */ = {
+		27B046F821406D1F003BF347 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				27B046F921406D3E003BF347 /* CardView.swift */,
 			);
-			path = StyleComponents;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		27B046FD21407B8C003BF347 /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				27B046FE21407BAF003BF347 /* BaseValidator.swift */,
+				27B0470021407C08003BF347 /* FormValidators.swift */,
+			);
+			path = Validators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,14 +408,18 @@
 				27B046F3214061ED003BF347 /* LoginRouter.swift in Sources */,
 				27B046D921405E8B003BF347 /* BaseInteractor.swift in Sources */,
 				27B046D421405DE4003BF347 /* Initializable.swift in Sources */,
+				27B0470121407C08003BF347 /* FormValidators.swift in Sources */,
 				27B046F521406325003BF347 /* LoginBuilder.swift in Sources */,
+				27B0470521408134003BF347 /* LoginInteractor.swift in Sources */,
 				27B046F1214061E7003BF347 /* LoginPresenter.swift in Sources */,
 				27B046E12140603C003BF347 /* UIColor+VIPER.swift in Sources */,
+				27B046FC21407AD7003BF347 /* UITextField+Molds.swift in Sources */,
 				27B046DE21405F7C003BF347 /* BaseView.swift in Sources */,
 				27B0469B21405CF6003BF347 /* AppDelegate.swift in Sources */,
 				27B046D721405E33003BF347 /* BaseRouter.swift in Sources */,
 				27B046EF21406194003BF347 /* LoginView.swift in Sources */,
 				27B046E32140605A003BF347 /* UIFont+VIPER.swift in Sources */,
+				27B046FF21407BAF003BF347 /* BaseValidator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
