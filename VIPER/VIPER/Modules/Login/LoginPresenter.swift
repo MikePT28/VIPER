@@ -19,13 +19,6 @@ protocol LoginPresenterProtocol: BasePresenterProtocol {
     func doLogin(email: String?, password: String?)
 }
 
-protocol LoginPresenterCallbackProtocol: BasePresenterCallbackProtocol {
-    
-    func loginSuccess()
-    func loginFailure(error: LoginError)
-    
-}
-
 final class LoginPresenter<T: LoginViewProtocol, U: LoginRouterProtocol>: BasePresenter<T, U> {
     
     fileprivate let loginInteractor: LoginInteractorProtocol
@@ -72,7 +65,7 @@ extension LoginPresenter: LoginPresenterCallbackProtocol {
     
     func loginSuccess() {
         view.removeError()
-        router.presentDashboard()
+        router.presentDashboard(output: Login.Output(name: "Name", lastName: "Lastname"))
     }
     
     func loginFailure(error: LoginError) {

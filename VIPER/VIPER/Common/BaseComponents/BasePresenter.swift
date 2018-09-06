@@ -12,8 +12,6 @@ public protocol BaseViewProtocol: class { }
 
 public protocol BasePresenterProtocol: class { }
 
-public protocol BasePresenterCallbackProtocol: class { }
-
 public class BasePresenter<T: BaseViewProtocol, U: BaseRouterProtocol> {
     
     internal unowned let view: T

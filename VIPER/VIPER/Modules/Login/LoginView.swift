@@ -31,12 +31,9 @@ final class LoginView: BaseView {
         static let dividerHeight: CGFloat = 1.0
     }
     
-    override func viewDidLoad() {
-        view.backgroundColor = .white
-        super.viewDidLoad()
-    }
-    
     override func setupComponents() {
+        view.backgroundColor = .vPurple
+        
         header = .header
         header.text = "Welcome back!"
         

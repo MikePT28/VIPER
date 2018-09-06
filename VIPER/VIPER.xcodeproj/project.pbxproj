@@ -31,6 +31,12 @@
 		2B99EED1214123EA008E7183 /* LoginPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B99EED0214123EA008E7183 /* LoginPresenterTests.swift */; };
 		2B99EED421413CF6008E7183 /* LoginMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B99EED321413CF6008E7183 /* LoginMocks.swift */; };
 		2B99EED621413F27008E7183 /* LoginInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B99EED521413F27008E7183 /* LoginInteractorTests.swift */; };
+		2B99EEDC21417901008E7183 /* DashboardBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B99EEDB21417901008E7183 /* DashboardBuilder.swift */; };
+		2B99EEDE21417915008E7183 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B99EEDD21417915008E7183 /* DashboardView.swift */; };
+		2B99EEE02141794D008E7183 /* DashboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B99EEDF2141794D008E7183 /* DashboardPresenter.swift */; };
+		2B99EEE221417A5F008E7183 /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B99EEE121417A5F008E7183 /* DashboardRouter.swift */; };
+		2B99EEE421417C9B008E7183 /* DashboardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B99EEE321417C9B008E7183 /* DashboardModels.swift */; };
+		2B99EEE621417D92008E7183 /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B99EEE521417D92008E7183 /* LoginModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +87,12 @@
 		2B99EED0214123EA008E7183 /* LoginPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterTests.swift; sourceTree = "<group>"; };
 		2B99EED321413CF6008E7183 /* LoginMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMocks.swift; sourceTree = "<group>"; };
 		2B99EED521413F27008E7183 /* LoginInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractorTests.swift; sourceTree = "<group>"; };
+		2B99EEDB21417901008E7183 /* DashboardBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardBuilder.swift; sourceTree = "<group>"; };
+		2B99EEDD21417915008E7183 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		2B99EEDF2141794D008E7183 /* DashboardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenter.swift; sourceTree = "<group>"; };
+		2B99EEE121417A5F008E7183 /* DashboardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRouter.swift; sourceTree = "<group>"; };
+		2B99EEE321417C9B008E7183 /* DashboardModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModels.swift; sourceTree = "<group>"; };
+		2B99EEE521417D92008E7183 /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +190,7 @@
 		27B046CA21405DA6003BF347 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2B99EED9214178E9008E7183 /* Dashboard */,
 				27B046E921406158003BF347 /* Login */,
 			);
 			path = Modules;
@@ -257,6 +270,7 @@
 				27B046F0214061E7003BF347 /* LoginPresenter.swift */,
 				27B046F2214061ED003BF347 /* LoginRouter.swift */,
 				27B046EE21406194003BF347 /* LoginView.swift */,
+				2B99EEE521417D92008E7183 /* LoginModels.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -294,6 +308,18 @@
 				2B99EED521413F27008E7183 /* LoginInteractorTests.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		2B99EED9214178E9008E7183 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				2B99EEDB21417901008E7183 /* DashboardBuilder.swift */,
+				2B99EEDF2141794D008E7183 /* DashboardPresenter.swift */,
+				2B99EEE121417A5F008E7183 /* DashboardRouter.swift */,
+				2B99EEDD21417915008E7183 /* DashboardView.swift */,
+				2B99EEE321417C9B008E7183 /* DashboardModels.swift */,
+			);
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,18 +460,24 @@
 				27B046F3214061ED003BF347 /* LoginRouter.swift in Sources */,
 				27B046D921405E8B003BF347 /* BaseInteractor.swift in Sources */,
 				27B046D421405DE4003BF347 /* Initializable.swift in Sources */,
+				2B99EEE421417C9B008E7183 /* DashboardModels.swift in Sources */,
 				27B0470121407C08003BF347 /* FormValidators.swift in Sources */,
 				27B046F521406325003BF347 /* LoginBuilder.swift in Sources */,
+				2B99EEE621417D92008E7183 /* LoginModels.swift in Sources */,
+				2B99EEDC21417901008E7183 /* DashboardBuilder.swift in Sources */,
 				27B0470521408134003BF347 /* LoginInteractor.swift in Sources */,
 				27B046F1214061E7003BF347 /* LoginPresenter.swift in Sources */,
+				2B99EEE02141794D008E7183 /* DashboardPresenter.swift in Sources */,
 				27B046E12140603C003BF347 /* UIColor+VIPER.swift in Sources */,
 				27B046FC21407AD7003BF347 /* UITextField+Molds.swift in Sources */,
 				27B046DE21405F7C003BF347 /* BaseView.swift in Sources */,
 				27B0469B21405CF6003BF347 /* AppDelegate.swift in Sources */,
 				27B046D721405E33003BF347 /* BaseRouter.swift in Sources */,
 				27B046EF21406194003BF347 /* LoginView.swift in Sources */,
+				2B99EEDE21417915008E7183 /* DashboardView.swift in Sources */,
 				27B046E32140605A003BF347 /* UIFont+VIPER.swift in Sources */,
 				27B046FF21407BAF003BF347 /* BaseValidator.swift in Sources */,
+				2B99EEE221417A5F008E7183 /* DashboardRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
