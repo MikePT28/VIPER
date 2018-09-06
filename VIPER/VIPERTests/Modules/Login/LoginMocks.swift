@@ -26,5 +26,3 @@ class LoginInteractorFailureMock: LoginInteractorProtocol {
     }
     
 }
-
-class LoginRouterMock: LoginRouterProtocol { }

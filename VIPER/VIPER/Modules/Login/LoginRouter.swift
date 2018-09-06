@@ -10,12 +10,30 @@ import Foundation
 
 protocol LoginRouterProtocol: BaseRouterProtocol {
     
-}
-
-class LoginRouter: BaseRouter {
+    func presentDashboard()
     
 }
 
+class LoginRouter: BaseRouter {
+
+}
+
 extension LoginRouter: LoginRouterProtocol {
+    
+    func presentDashboard() {
+        viewController.present(DashboardBuilder.build(), animated: true, completion: nil)
+    }
+    
+}
+
+import UIKit.UIViewController
+
+class DashboardBuilder {
+    
+    static func build() -> UIViewController {
+        let vC = UIViewController()
+        vC.view.backgroundColor = .purple
+        return vC
+    }
     
 }

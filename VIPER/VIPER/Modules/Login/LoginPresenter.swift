@@ -72,6 +72,7 @@ extension LoginPresenter: LoginPresenterCallbackProtocol {
     
     func loginSuccess() {
         view.removeError()
+        router.presentDashboard()
     }
     
     func loginFailure(error: LoginError) {

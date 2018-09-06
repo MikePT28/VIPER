@@ -35,7 +35,7 @@ extension LoginInteractor: LoginInteractorProtocol {
     
     func doLogin(email: String, password: String) {
         
-        if email == "m@m.com" && password == "1234" {
+        if email.caseInsensitiveCompare("m@m.com") == .orderedSame && password == "1234" {
             presenter.loginSuccess()
         } else {
             presenter.loginFailure(error: .invalidCredentials)

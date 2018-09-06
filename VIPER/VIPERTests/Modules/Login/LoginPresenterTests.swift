@@ -27,75 +27,89 @@ class LoginPresenterTests: XCTestCase {
         
     }
     
+    class LoginRouterSpy: LoginRouterProtocol {
+        var dashboardPresented: Bool = false
+        
+        func presentDashboard() {
+            dashboardPresented = true
+        }
+        
+    }
+    
     func testLoginSuccess() {
         
-        let spy = LoginViewSpy()
+        let viewSpy = LoginViewSpy()
         let interactorMock = LoginInteractorSuccessMock()
-        let routerMock = LoginRouterMock()
-        let sut = LoginPresenter(view: spy, router: routerMock, loginInteractor: interactorMock)
+        let routerSpy = LoginRouterSpy()
+        let sut = LoginPresenter(view: viewSpy, router: routerSpy, loginInteractor: interactorMock)
         interactorMock.presenter = sut
         
         sut.doLogin(email: "aa@a", password: "1234")
         
-        XCTAssertTrue(spy.errorMessageRemoved)
+        XCTAssertTrue(viewSpy.errorMessageRemoved)
+        XCTAssertTrue(routerSpy.dashboardPresented)
     }
     
     func testLoginFailure() {
         
-        let spy = LoginViewSpy()
+        let viewSpy = LoginViewSpy()
         let interactorMock = LoginInteractorFailureMock()
-        let routerMock = LoginRouterMock()
-        let sut = LoginPresenter(view: spy, router: routerMock, loginInteractor: interactorMock)
+        let routerSpy = LoginRouterSpy()
+        let sut = LoginPresenter(view: viewSpy, router: routerSpy, loginInteractor: interactorMock)
         interactorMock.presenter = sut
         
         sut.doLogin(email: "aa@a", password: "1234")
         
-        XCTAssertTrue(spy.errorMessageShown)
-        XCTAssertEqual(spy.errorMessage, LoginError.invalidCredentials.localizedDescription)
+        XCTAssertTrue(viewSpy.errorMessageShown)
+        XCTAssertEqual(viewSpy.errorMessage, LoginError.invalidCredentials.localizedDescription)
+        XCTAssertFalse(routerSpy.dashboardPresented)
     }
     
     func testLoginNoData() {
         
-        let spy = LoginViewSpy()
+        let viewSpy = LoginViewSpy()
         let interactorMock = LoginInteractorSuccessMock()
-        let routerMock = LoginRouterMock()
-        let sut = LoginPresenter(view: spy, router: routerMock, loginInteractor: interactorMock)
+        let routerSpy = LoginRouterSpy()
+        let sut = LoginPresenter(view: viewSpy, router: routerSpy, loginInteractor: interactorMock)
         interactorMock.presenter = sut
         
         sut.doLogin(email: nil, password: nil)
         
-        XCTAssertTrue(spy.errorMessageShown)
-        XCTAssertEqual(spy.errorMessage, "Email and password are required!")
+        XCTAssertTrue(viewSpy.errorMessageShown)
+        XCTAssertEqual(viewSpy.errorMessage, "Email and password are required!")
+        XCTAssertFalse(routerSpy.dashboardPresented)
         
     }
     
     func testLoginWrongEmail() {
         
-        let spy = LoginViewSpy()
+        let viewSpy = LoginViewSpy()
         let interactorMock = LoginInteractorSuccessMock()
-        let routerMock = LoginRouterMock()
-        let sut = LoginPresenter(view: spy, router: routerMock, loginInteractor: interactorMock)
+        let routerSpy = LoginRouterSpy()
+        let sut = LoginPresenter(view: viewSpy, router: routerSpy, loginInteractor: interactorMock)
         interactorMock.presenter = sut
         
         sut.doLogin(email: "aa.com", password: "password")
         
-        XCTAssertTrue(spy.errorMessageShown)
-        XCTAssertEqual(spy.errorMessage, "Please enter a valid 'email' address")
+        XCTAssertTrue(viewSpy.errorMessageShown)
+        XCTAssertEqual(viewSpy.errorMessage, "Please enter a valid 'email' address")
+        XCTAssertFalse(routerSpy.dashboardPresented)
         
     }
     
     func testLoginWrongPassword() {
         
-        let spy = LoginViewSpy()
+        let viewSpy = LoginViewSpy()
         let interactorMock = LoginInteractorSuccessMock()
-        let routerMock = LoginRouterMock()
-        let sut = LoginPresenter(view: spy, router: routerMock, loginInteractor: interactorMock)
+        let routerSpy = LoginRouterSpy()
+        let sut = LoginPresenter(view: viewSpy, router: routerSpy, loginInteractor: interactorMock)
         interactorMock.presenter = sut
         
         sut.doLogin(email: "aa@a.com", password: "0")
         
-        XCTAssertTrue(spy.errorMessageShown)
-        XCTAssertEqual(spy.errorMessage, "Please enter a valid 'password'")
+        XCTAssertTrue(viewSpy.errorMessageShown)
+        XCTAssertEqual(viewSpy.errorMessage, "Please enter a valid 'password'")
+        XCTAssertFalse(routerSpy.dashboardPresented)
         
     }
     
