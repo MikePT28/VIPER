@@ -18,6 +18,10 @@ extension UIFont {
         return UIFont.systemFont(ofSize: 16.0, weight: .light)
     }
     
+    open class var error: UIFont {
+        return UIFont.systemFont(ofSize: 12.0, weight: .regular)
+    }
+    
     open class var buttonTitle: UIFont {
         return UIFont.systemFont(ofSize: 16.0, weight: .medium)
     }

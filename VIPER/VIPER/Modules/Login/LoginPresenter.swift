@@ -22,6 +22,7 @@ protocol LoginPresenterProtocol: BasePresenterProtocol {
 protocol LoginPresenterCallbackProtocol: BasePresenterCallbackProtocol {
     
     func loginSuccess()
+    func loginFailure(error: LoginError)
     
 }
 
@@ -71,6 +72,10 @@ extension LoginPresenter: LoginPresenterCallbackProtocol {
     
     func loginSuccess() {
         view.removeError()
+    }
+    
+    func loginFailure(error: LoginError) {
+        view.showError(message: error.localizedDescription)
     }
     
 }

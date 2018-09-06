@@ -55,7 +55,6 @@ final class LoginView: BaseView {
         divider.translatesAutoresizingMaskIntoConstraints = false
         
         emailField = .email
-        
         passwordField = .password
         
         loginButton = UIButton(type: .system)
@@ -63,13 +62,12 @@ final class LoginView: BaseView {
         loginButton.titleLabel?.font = .buttonTitle
         loginButton.addTarget(self, action: #selector(loginAction(_:)), for: .touchUpInside)
         
-        errorLabel = .subtitle
-        errorLabel.textColor = .red
+        errorLabel = .error
         
         formStackView = UIStackView(arrangedSubviews: [emailField, passwordField, loginButton])
         formStackView.axis = .vertical
         formStackView.alignment = .fill
-        formStackView.distribution = .fillEqually
+        formStackView.distribution = .fillProportionally
         formStackView.spacing = ViewTraits.verticalSpacing
         formStackView.translatesAutoresizingMaskIntoConstraints = false
         

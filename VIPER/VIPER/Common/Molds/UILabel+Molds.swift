@@ -29,5 +29,14 @@ extension UILabel {
         mold.textColor = .vBlack
         return mold
     }
+    
+    open class var error: UILabel {
+        let mold = UILabel()
+        mold.font = .error
+        mold.textAlignment = .center
+        mold.numberOfLines = 0
+        mold.textColor = .vRed
+        return mold
+    }
 
 }

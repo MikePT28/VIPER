@@ -28,6 +28,7 @@
 		27B046FF21407BAF003BF347 /* BaseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B046FE21407BAF003BF347 /* BaseValidator.swift */; };
 		27B0470121407C08003BF347 /* FormValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B0470021407C08003BF347 /* FormValidators.swift */; };
 		27B0470521408134003BF347 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B0470421408134003BF347 /* LoginInteractor.swift */; };
+		2B99EECD21410B99008E7183 /* Error+Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B99EECC21410B99008E7183 /* Error+Messages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		27B046FE21407BAF003BF347 /* BaseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseValidator.swift; sourceTree = "<group>"; };
 		27B0470021407C08003BF347 /* FormValidators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidators.swift; sourceTree = "<group>"; };
 		27B0470421408134003BF347 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		2B99EECC21410B99008E7183 /* Error+Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Messages.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 			children = (
 				27B046E02140603C003BF347 /* UIColor+VIPER.swift */,
 				27B046E22140605A003BF347 /* UIFont+VIPER.swift */,
+				2B99EECC21410B99008E7183 /* Error+Messages.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				27B0469B21405CF6003BF347 /* AppDelegate.swift in Sources */,
 				27B046D721405E33003BF347 /* BaseRouter.swift in Sources */,
 				27B046EF21406194003BF347 /* LoginView.swift in Sources */,
+				2B99EECD21410B99008E7183 /* Error+Messages.swift in Sources */,
 				27B046E32140605A003BF347 /* UIFont+VIPER.swift in Sources */,
 				27B046FF21407BAF003BF347 /* BaseValidator.swift in Sources */,
 			);

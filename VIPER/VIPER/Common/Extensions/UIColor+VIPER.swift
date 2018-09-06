@@ -12,4 +12,5 @@ extension UIColor {
     
     open class var vBlack: UIColor { return UIColor(named: "black")! }
     
+    open class var vRed: UIColor {return UIColor(named: "red")! }
 }
