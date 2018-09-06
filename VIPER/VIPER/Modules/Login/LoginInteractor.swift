@@ -21,7 +21,7 @@ enum LoginError: Error {
 
 protocol LoginInteractorProtocol: BaseInteractorProtocol {
     
-    func doLogin()
+    func doLogin(email: String, password: String)
     
 }
 
@@ -33,9 +33,9 @@ class LoginInteractor: BaseInteractor {
 
 extension LoginInteractor: LoginInteractorProtocol {
     
-    func doLogin() {
-        let rand = arc4random_uniform(2) + 1
-        if rand % 2 == 0 {
+    func doLogin(email: String, password: String) {
+        
+        if email == "m@m.com" && password == "1234" {
             presenter.loginSuccess()
         } else {
             presenter.loginFailure(error: .invalidCredentials)

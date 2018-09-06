@@ -63,7 +63,7 @@ extension LoginPresenter: LoginPresenterProtocol {
             return
         }
         
-        loginInteractor.doLogin()
+        loginInteractor.doLogin(email: email, password: password)
     }
     
 }
