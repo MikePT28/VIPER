@@ -12,44 +12,52 @@ import XCTest
 class LoginInteractorTests: XCTestCase {
 
     class LoginPresenterSpy: LoginInteractorCallbackProtocol {
-        var isLoginSuccessful: Bool = false
+        var expectedLoginObject: Login.Expected?
         var isLoginError: Bool = false
-        var loginError: LoginError? = nil
+        var loginError: Login.Errors? = nil
         
-        func loginFailure(error: LoginError) {
+        func loginFailure(error: Login.Errors) {
             isLoginError = true
             loginError = error
         }
         
-        func loginSuccess() {
-            isLoginSuccessful = true
+        func loginSuccess(data: Login.Expected) {
+            expectedLoginObject = data
         }
         
     }
     
+
+    
     func testLoginSuccess() {
         
-        let spy = LoginPresenterSpy()
+        let presenterSpy = LoginPresenterSpy()
         let sut = LoginInteractor()
-        sut.presenter = spy
+        let loginWorkerMock = LoginInteractorWorkerSuccessMock(interactor: sut)
+        sut.loginWorker = loginWorkerMock
+        sut.presenter = presenterSpy
         
         sut.doLogin(email: "m@m.com", password: "1234")
         
-        XCTAssertTrue(spy.isLoginSuccessful)
+        XCTAssertNotNil(presenterSpy.expectedLoginObject)
+        XCTAssertEqual(presenterSpy.expectedLoginObject!.name, "Jon")
+        XCTAssertEqual(presenterSpy.expectedLoginObject!.lastName, "Doe")
         
     }
     
     func testLoginFailure() {
-        
-        let spy = LoginPresenterSpy()
+
+        let presenterSpy = LoginPresenterSpy()
         let sut = LoginInteractor()
-        sut.presenter = spy
+        let loginWorkerMock = LoginInteractorWorkerFailureMock(interactor: sut)
+        sut.loginWorker = loginWorkerMock
+        sut.presenter = presenterSpy
         
         sut.doLogin(email: "wrong", password: "wrong")
         
-        XCTAssertTrue(spy.isLoginError)
-        XCTAssertNotNil(spy.loginError)
-        XCTAssertEqual(spy.loginError!, .invalidCredentials)
+        XCTAssertTrue(presenterSpy.isLoginError)
+        XCTAssertNotNil(presenterSpy.loginError)
+        XCTAssertEqual(presenterSpy.loginError!, .invalidCredentials)
         
     }
 }

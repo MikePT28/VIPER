@@ -60,7 +60,7 @@ class LoginPresenterTests: XCTestCase {
         sut.doLogin(email: "aa@a", password: "1234")
         
         XCTAssertTrue(viewSpy.errorMessageShown)
-        XCTAssertEqual(viewSpy.errorMessage, LoginError.invalidCredentials.localizedDescription)
+        XCTAssertEqual(viewSpy.errorMessage, Login.Errors.invalidCredentials.localizedDescription)
         XCTAssertFalse(routerSpy.dashboardPresented)
     }
     

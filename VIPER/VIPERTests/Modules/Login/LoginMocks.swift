@@ -13,7 +13,7 @@ class LoginInteractorSuccessMock: LoginInteractorProtocol {
     var presenter: LoginInteractorCallbackProtocol!
     
     func doLogin(email: String, password: String) {
-        presenter.loginSuccess()
+        presenter.loginSuccess(data: Login.Expected(name: "Jon", lastName: "Doe"))
     }
     
 }
@@ -25,4 +25,28 @@ class LoginInteractorFailureMock: LoginInteractorProtocol {
         presenter.loginFailure(error: .invalidCredentials)
     }
     
+}
+
+class LoginInteractorWorkerSuccessMock: LoginInteractorWorkerProtocol {
+    unowned let interactor: LoginInteractorWorkerCallbackProtocol
+    
+    init(interactor: LoginInteractorWorkerCallbackProtocol) {
+        self.interactor = interactor
+    }
+    
+    func doLogin(email: String, password: String) {
+        interactor.loginSuccess(data: Login.Expected(name: "Jon", lastName: "Doe"))
+    }
+}
+
+class LoginInteractorWorkerFailureMock: LoginInteractorWorkerProtocol {
+    unowned let interactor: LoginInteractorWorkerCallbackProtocol
+    
+    init(interactor: LoginInteractorWorkerCallbackProtocol) {
+        self.interactor = interactor
+    }
+    
+    func doLogin(email: String, password: String) {
+        interactor.loginFailure(error: .invalidCredentials)
+    }
 }
