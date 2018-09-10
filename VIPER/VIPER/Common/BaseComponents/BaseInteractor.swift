@@ -10,6 +10,6 @@ import Foundation
 
 protocol BaseInteractorProtocol: class { }
 
-public protocol BasePresenterCallbackProtocol: class { }
+public protocol BaseInteractorCallbackProtocol: class { }
 
 class BaseInteractor { }

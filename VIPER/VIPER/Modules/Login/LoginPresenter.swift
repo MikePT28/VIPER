@@ -61,7 +61,7 @@ extension LoginPresenter: LoginPresenterProtocol {
     
 }
 
-extension LoginPresenter: LoginPresenterCallbackProtocol {
+extension LoginPresenter: LoginInteractorCallbackProtocol {
     
     func loginSuccess() {
         view.removeError()

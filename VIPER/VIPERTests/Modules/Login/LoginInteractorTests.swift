@@ -11,7 +11,7 @@ import XCTest
 
 class LoginInteractorTests: XCTestCase {
 
-    class LoginPresenterSpy: LoginPresenterCallbackProtocol {
+    class LoginPresenterSpy: LoginInteractorCallbackProtocol {
         var isLoginSuccessful: Bool = false
         var isLoginError: Bool = false
         var loginError: LoginError? = nil

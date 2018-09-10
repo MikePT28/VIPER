@@ -25,7 +25,7 @@ protocol LoginInteractorProtocol: BaseInteractorProtocol {
     
 }
 
-protocol LoginPresenterCallbackProtocol: BasePresenterCallbackProtocol {
+protocol LoginInteractorCallbackProtocol: BaseInteractorCallbackProtocol {
     
     func loginSuccess()
     func loginFailure(error: LoginError)
@@ -34,7 +34,7 @@ protocol LoginPresenterCallbackProtocol: BasePresenterCallbackProtocol {
 
 class LoginInteractor: BaseInteractor {
     
-    weak var presenter: LoginPresenterCallbackProtocol!
+    weak var presenter: LoginInteractorCallbackProtocol!
     
 }
 

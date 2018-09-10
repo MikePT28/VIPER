@@ -10,7 +10,7 @@ import Foundation
 @testable import VIPER
 
 class LoginInteractorSuccessMock: LoginInteractorProtocol {
-    var presenter: LoginPresenterCallbackProtocol!
+    var presenter: LoginInteractorCallbackProtocol!
     
     func doLogin(email: String, password: String) {
         presenter.loginSuccess()
@@ -19,7 +19,7 @@ class LoginInteractorSuccessMock: LoginInteractorProtocol {
 }
 
 class LoginInteractorFailureMock: LoginInteractorProtocol {
-    var presenter: LoginPresenterCallbackProtocol!
+    var presenter: LoginInteractorCallbackProtocol!
     
     func doLogin(email: String, password: String) {
         presenter.loginFailure(error: .invalidCredentials)
