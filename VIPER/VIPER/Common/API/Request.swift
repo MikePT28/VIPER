@@ -36,5 +36,5 @@ struct Request {
         
         return URL(string: (urlComponents.url?.absoluteString.removingPercentEncoding!)!)!
     }
-    let domain : String = "evivanlanschot.nl"
+    let domain : String = Bundle.main.bundleIdentifier ?? "com.no.bundle"
 }
