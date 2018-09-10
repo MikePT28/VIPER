@@ -30,10 +30,9 @@ class LoginPresenterTests: XCTestCase {
     class LoginRouterSpy: LoginRouterProtocol {
         var dashboardPresented: Bool = false
         
-        func presentDashboard() {
+        func presentDashboard(output: Login.Output) {
             dashboardPresented = true
         }
-        
     }
     
     func testLoginSuccess() {

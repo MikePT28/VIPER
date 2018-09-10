@@ -63,12 +63,12 @@ extension LoginPresenter: LoginPresenterProtocol {
 
 extension LoginPresenter: LoginInteractorCallbackProtocol {
     
-    func loginSuccess() {
+    func loginSuccess(data: Login.Expected) {
         view.removeError()
-        router.presentDashboard(output: Login.Output(name: "Name", lastName: "Lastname"))
+        router.presentDashboard(output: Login.Output(name: data.name, lastName: data.lastName))
     }
     
-    func loginFailure(error: LoginError) {
+    func loginFailure(error: Login.Errors) {
         view.showError(message: error.localizedDescription)
     }
     

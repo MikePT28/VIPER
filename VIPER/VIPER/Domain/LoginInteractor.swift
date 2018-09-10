@@ -8,17 +8,6 @@
 
 import Foundation
 
-enum LoginError: Error {
-    case invalidCredentials
-    
-    var localizedDescription: String {
-        switch self {
-        case .invalidCredentials:
-            return "Username/Password may be incorrect"
-        }
-    }
-}
-
 protocol LoginInteractorProtocol: BaseInteractorProtocol {
     
     func doLogin(email: String, password: String)
@@ -27,14 +16,15 @@ protocol LoginInteractorProtocol: BaseInteractorProtocol {
 
 protocol LoginInteractorCallbackProtocol: BaseInteractorCallbackProtocol {
     
-    func loginSuccess()
-    func loginFailure(error: LoginError)
+    func loginSuccess(data: Login.Expected)
+    func loginFailure(error: Login.Errors)
     
 }
 
 class LoginInteractor: BaseInteractor {
     
     weak var presenter: LoginInteractorCallbackProtocol!
+    var loginWorker: LoginInteractorWorkerProtocol!
     
 }
 
@@ -42,11 +32,19 @@ extension LoginInteractor: LoginInteractorProtocol {
     
     func doLogin(email: String, password: String) {
         
-        if email.caseInsensitiveCompare("m@m.com") == .orderedSame && password == "1234" {
-            presenter.loginSuccess()
-        } else {
-            presenter.loginFailure(error: .invalidCredentials)
-        }
+        loginWorker.doLogin(email: email, password: password)
+    }
+    
+}
+
+extension LoginInteractor: LoginInteractorWorkerCallbackProtocol {
+    
+    func loginSuccess(data: Login.Expected) {
+        presenter.loginSuccess(data: data)
+    }
+    
+    func loginFailure(error: Login.Errors) {
+        presenter.loginFailure(error: error)
     }
     
 }

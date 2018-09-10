@@ -10,9 +10,24 @@ import Foundation
 
 enum Login {
     
+    enum Errors: Error {
+        case invalidCredentials
+        
+        var localizedDescription: String {
+            switch self {
+            case .invalidCredentials:
+                return "Username/Password may be incorrect"
+            }
+        }
+    }
+    
     struct Output {
         let name: String
         let lastName: String
     }
     
+    struct Expected: Codable {
+        let name: String
+        let lastName: String
+    }
 }
