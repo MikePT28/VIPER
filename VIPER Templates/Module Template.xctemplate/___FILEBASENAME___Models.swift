@@ -10,5 +10,5 @@ import Foundation
 
 enum ___VARIABLE_productName:identifier___ {
 //Place all module Models inside this enum as a struct or class
-    
+
 }

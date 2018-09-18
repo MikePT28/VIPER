@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ___VARIABLE_productName:identifier___RouterProtocol: BaseRouterProtocol {
-    
+
 }
 
 class ___VARIABLE_productName:identifier___Router: BaseRouter {
@@ -17,6 +17,5 @@ class ___VARIABLE_productName:identifier___Router: BaseRouter {
 }
 
 extension ___VARIABLE_productName:identifier___Router: ___VARIABLE_productName:identifier___RouterProtocol {
-    
-    
+
 }

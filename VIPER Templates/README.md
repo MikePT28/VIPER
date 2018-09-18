@@ -7,19 +7,6 @@
   - If the directory does not exists, create it
   - Paste the `Module` and `Interactor` Templates
 
-THIS IS NOT WORKING PROPERLY, SO DO AT OWN RISK 😅
-- On `/Project Templates/`
-  - Paste the `App` template
-  
-  
-# Automatic Installation
+### NOTE:
 
-I'm still working on the installation script.
-
-``` The usasge is very simple
-Just:
-- Open terminal
-- Navigate to the folder were the templates where downloaded
-- Run "sudo swift installation.swift" (without quotes)
-- Enjoy 😁
-```
+If you are reading this in Xcode, please rigth click on the `README.md` file, select __Show in Finder__ to navigate to the folder with the templates

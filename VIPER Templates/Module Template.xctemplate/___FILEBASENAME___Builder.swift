@@ -9,16 +9,16 @@
 import Foundation
 import UIKit.UIViewController
 
-final class ___VARIABLE_productName:identifier___Builder {
-    
+final class ___VARIABLE_productName:identifier___Builder: BaseBuilder {
+
     static func build() -> UIViewController {
-        
-        let view: ___VARIABLE_productName:identifier___View = ___VARIABLE_productName:identifier___View()
-        let router: ___VARIABLE_productName:identifier___Router = ___VARIABLE_productName:identifier___Router(view: view)
-        let presenter: ___VARIABLE_productName:identifier___Presenter = ___VARIABLE_productName:identifier___Presenter(view: view, router: router)
-        view.presenter = presenter
-        
-        return view
+
+        let viewController: ___VARIABLE_productName:identifier___ViewController = ___VARIABLE_productName:identifier___ViewController()
+        let router: ___VARIABLE_productName:identifier___Router = ___VARIABLE_productName:identifier___Router(viewController: viewController)
+        let presenter: ___VARIABLE_productName:identifier___Presenter = ___VARIABLE_productName:identifier___Presenter(viewController: viewController, router: router)
+        viewController.presenter = presenter
+
+        return viewController
     }
-    
+
 }
